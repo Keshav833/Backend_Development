@@ -2,17 +2,20 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.use(function(req, res, next){
-  console.log("Middle ware chal chuka hai");
-  next();
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-})
+// app.use(function(req, res, next){
+//   console.log("Middle ware chal chuka hai");
+//   next();
 
-app.use(function(req, res, next){
-  console.log("Middle ware ek aur baar chal chuka hai");
-  next();
+// })
 
-})
+// app.use(function(req, res, next){
+//   console.log("Middle ware ek aur baar chal chuka hai");
+//   next();
+
+// })
 
 app.get('/', (req, res) => {
   res.send('Hello World, how is it , ')
