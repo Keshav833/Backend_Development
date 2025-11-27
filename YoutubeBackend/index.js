@@ -10,7 +10,6 @@ app.use(express.static(Path.join(__dirname,'public')));
 app.set('view engine','ejs');
 
 app.get('/', function(req, res){
-
   fs.readdir(`./files`, function(err, files){
     res.render("index",{files:files});
   })
@@ -19,7 +18,7 @@ app.get('/', function(req, res){
 app.post('/create', function(req, res){
     console.log(req.body.title)
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}`, req.body.details , function(err){
-        res.redirect("/")
+        res.redirect("/");
     });
 })
 app.get('/file/:filename', function(req, res){
