@@ -27,6 +27,21 @@ app.get('/file/:filename', function(req, res){
    })
   
 })
+app.get('/edit/:filename', function(req, res){
+   res.render('edit',{filename:req.params.filename})
+   
+  
+})
+
+app.post('/edit', function(req, res){
+  console.log(req.body.previous)
+  console.log(req.body.NewName)
+  fs.rename(`./files/${req.body.previous}`,`./files/${req.body.NewName}`,function(err){
+    if(err) console.log(err);
+    res.redirect("/");
+  })
+  
+})
 
 // app.get('/', (req, res) => {
 //   res.render("index");
