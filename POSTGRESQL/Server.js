@@ -1,10 +1,10 @@
 const {Client } = require('pg');
 const express = require('express');
-
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// database connection configuration
 const con = new Client({
     host : "localhost",
     user : "postgres",
@@ -13,10 +13,10 @@ const con = new Client({
     database: "demopost"
 })
 
-
 // connecting to database
 con.connect().then(()=>{
-    console.log("Connected to postgreSql");
+    console.log("Connected to postgreSql ");
+
 })
 
 // inserting data into the table
