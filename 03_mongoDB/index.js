@@ -51,6 +51,8 @@ app.use(express.urlencoded({extended : false}))
 app.use(express.json());
 
 // ROutes
+
+
 app.get('/users', async (req, res)=>{
     const AllUsers = await User.find({});
     const html = `
